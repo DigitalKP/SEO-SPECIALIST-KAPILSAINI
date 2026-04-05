@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://kapilsaini.github.io/sitemap.xml
+
+# SEO Portfolio - Kapil Saini
+# Last updated: April 2026
