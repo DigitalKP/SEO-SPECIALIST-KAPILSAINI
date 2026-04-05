@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapil Saini | SEO Executive | 3× Traffic Growth Specialist</title>
+    <meta name="description" content="SEO Executive with 1+ year experience managing 3 UAE visa domains. Achieved 3× impression growth, 100%+ daily clicks increase, 10+ Google Top 10 rankings. MBA in Digital Marketing.">
+    <meta name="keywords" content="SEO Executive, SEO Specialist, Technical SEO, UAE Visa SEO, Schema Markup, AEO, Digital Marketing, Gurgaon SEO">
+    <meta name="author" content="Kapil Saini">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kapil Saini | SEO Executive | Proven Results">
+    <meta property="og:description" content="3× impression growth | 100%+ clicks increase | 10+ Top 10 rankings | UAE Visa SEO Specialist">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kapilsaini.github.io">
+    <meta property="og:image" content="https://kapilsaini.github.io/assets/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kapil Saini | SEO Executive">
+    <meta name="twitter:description" content="SEO results that speak: 3× growth, 10+ rankings, technical SEO expert">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://kapilsaini.github.io">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0ea5e9;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(180deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37,99,235,0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            background: var(--gradient);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+            box-shadow: 0 20px 60px rgba(37,99,235,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            background-size: 100px;
+            opacity: 0.5;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Case Studies Preview */
+        .case-studies {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, var(--light), white);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .case-header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .case-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-domain {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .case-body {
+            padding: 2rem;
+        }
+
+        .case-results {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-result {
+            text-align: center;
+        }
+
+        .case-result-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .case-result-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #e0f2fe;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tool-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tool-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtitle {
+            color: #94a3b8;
+            margin-bottom: 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">KS.</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#cases">Case Studies</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="fade-in">SEO Executive<br><span>Driving 3× Growth</span></h1>
+                <p class="hero-subtitle fade-in delay-1">
+                    Managing 3 high-traffic UAE visa domains with proven results in technical SEO, 
+                    schema markup, and AI search optimization. MBA in Digital Marketing.
+                </p>
+
+                <div class="hero-stats fade-in delay-2">
+                    <div class="stat-card">
+                        <span class="stat-number">3×</span>
+                        <span class="stat-label">Impression Growth</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%+</span>
+                        <span class="stat-label">Daily Clicks</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Top 10 Rankings</span>
+                    </div>
+                </div>
+
+                <div class="cta-group fade-in delay-3">
+                    <a href="#cases" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i> View Case Studies
+                    </a>
+                    <a href="assets/Kapil_Saini_Resume.pdf" class="btn btn-secondary" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual fade-in delay-2">
+                <div class="hero-image">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-container">
+            <h2 class="section-title">Core SEO Competencies</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-search"></i> On-Page SEO</h3>
+                    <p>Meta optimization, content restructuring, heading hierarchy, and keyword mapping for maximum relevance.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Technical SEO</h3>
+                    <p>Crawl error resolution, Core Web Vitals optimization, site speed improvements, and indexation management.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-link"></i> Link Building</h3>
+                    <p>Strategic outreach, niche directory placements, editorial backlinks, and internal linking architecture.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-robot"></i> Schema Markup</h3>
+                    <p>FAQPage, Article, BreadcrumbList implementation for enhanced SERP features and AI search visibility.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-brain"></i> AEO / AI Search</h3>
+                    <p>Answer Engine Optimization strategies targeting featured snippets, SGE, and Bing Copilot visibility.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fas fa-chart-bar"></i> Analytics</h3>
+                    <p>GA4, GSC, Ahrefs, SEMrush expertise for data-driven strategy and performance reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="cases">
+        <div class="section-container">
+            <h2 class="section-title">Featured Case Studies</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 600px; margin: 0 auto 2rem;">
+                Real results from managing 3 live UAE visa domains. Each project demonstrates 
+                different aspects of my SEO methodology.
+            </p>
+
+            <div class="cases-grid">
+                <!-- Case Study 1 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <h3>3× Impression Explosion</h3>
+                        <span class="case-domain">dubaivisitsvisa.com</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-results">
+                            <div class="case-result">
+                                <div class="case-result-value">3×</div>
+                                <div class="case-result-label">Impressions</div>
+                            </div>
+                            <div class="case-result">
+                                <div class="case-result-value">100%+</div>
+                                <div class="case-result-label">Daily Clicks</div>
+                            </div>
+                        </div>
+                        <div class="case-tags">
+                            <span class="tag">On-Page SEO</span>
+                            <span class="tag">Content Restructure</span>
+                            <span class="tag">GSC Verified</span>
+                        </div>
+                        <p style="color: var(--gray); margin-bottom: 1rem;">
+                            Complete content overhaul and on-page optimization strategy that tripled 
+                            organic visibility in 4 months.
+                        </p>
+                        <a href="case-studies/dubaivisitsvisa.html" class="read-more">
+                            Read Full Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Case Study 2 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <h3>Top 10 Domination</h3>
+                        <span class="case-domain">uaevisaonline.com</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-results">
+                            <div class="case-result">
+                                <div class="case-result-value">10+</div>
+                                <div class="case-result-label">Top 10 Rankings</div>
+                            </div>
+                            <div class="case-result">
+                                <div class="case-result-value">#1-3</div>
+                                <div class="case-result-label">Avg. Position</div>
+                            </div>
+                        </div>
+                        <div class="case-tags">
+                            <span class="tag">Meta Optimization</span>
+                            <span class="tag">Internal Linking</span>
+                            <span class="tag">Keyword Mapping</span>
+                        </div>
+                        <p style="color: var(--gray); margin-bottom: 1rem;">
+                            Strategic on-page optimization pushed 10+ competitive keywords into 
+                            Google's Top 10 results.
+                        </p>
+                        <a href="case-studies/uaevisaonline.html" class="read-more">
+                            Read Full Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Case Study 3 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <h3>Authority Building</h3>
+                        <span class="case-domain">emiratesvisa.online</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-results">
+                            <div class="case-result">
+                                <div class="case-result-value">AEO</div>
+                                <div class="case-result-label">Strategy</div>
+                            </div>
+                            <div class="case-result">
+                                <div class="case-result-value">Featured</div>
+                                <div class="case-result-label">Snippets</div>
+                            </div>
+                        </div>
+                        <div class="case-tags">
+                            <span class="tag">Backlink Outreach</span>
+                            <span class="tag">FAQ Schema</span>
+                            <span class="tag">Editorial Placements</span>
+                        </div>
+                        <p style="color: var(--gray); margin-bottom: 1rem;">
+                            Comprehensive backlink strategy combined with AEO content architecture 
+                            for AI search visibility.
+                        </p>
+                        <a href="case-studies/emiratesvisa.html" class="read-more">
+                            Read Full Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+        <div class="section-container">
+            <h2 class="section-title">SEO Stack & Certifications</h2>
+
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-spider"></i></div>
+                    <div>Screaming Frog</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
+                    <div>Ahrefs</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-search-dollar"></i></div>
+                    <div>SEMrush</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-google"></i></div>
+                    <div>GSC</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-analytics"></i></div>
+                    <div>GA4</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fab fa-wordpress"></i></div>
+                    <div>WordPress</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-star"></i></div>
+                    <div>Rank Math</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon"><i class="fas fa-code"></i></div>
+                    <div>Schema</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3 style="margin-bottom: 1.5rem; color: var(--dark);">Certifications</h3>
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div style="background: var(--light); padding: 1rem 2rem; border-radius: 8px;">
+                        <i class="fas fa-certificate" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                        Google Analytics Certification
+                    </div>
+                    <div style="background: var(--light); padding: 1rem 2rem; border-radius: 8px;">
+                        <i class="fas fa-certificate" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                        GSC Fundamentals
+                    </div>
+                    <div style="background: var(--light); padding: 1rem 2rem; border-radius: 8px;">
+                        <i class="fas fa-graduation-cap" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                        MBA - Marketing/Digital
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Let's Drive Growth Together</h2>
+            <p class="contact-subtitle">
+                Available for SEO consulting, full-time roles, and project-based work
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:kapilsaini.dm@gmail.com">kapilsaini.dm@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/kapilsaini-dm" target="_blank">linkedin.com/in/kapilsaini-dm</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+917355466659">+91 73554 66659</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <span>Gurgaon / Delhi NCR</span>
+                </div>
+            </div>
+
+            <a href="assets/Kapil_Saini_Resume.pdf" class="btn btn-primary" download style="margin-top: 2rem;">
+                <i class="fas fa-download"></i> Download Full Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kapil Saini. SEO Executive | Built with performance in mind.</p>
+    </footer>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kapil Saini",
+        "jobTitle": "SEO Executive",
+        "description": "SEO Executive with 1+ year experience managing UAE visa domains. Achieved 3× impression growth and 10+ Top 10 rankings.",
+        "url": "https://kapilsaini.github.io",
+        "email": "kapilsaini.dm@gmail.com",
+        "telephone": "+917355466659",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Gurgaon",
+            "addressRegion": "Delhi NCR",
+            "addressCountry": "India"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "PSIT College",
+            "description": "MBA in Marketing/Digital"
+        },
+        "knowsAbout": [
+            "Search Engine Optimization",
+            "Technical SEO",
+            "Schema Markup",
+            "Google Analytics",
+            "Content Strategy",
+            "Link Building"
+        ],
+        "sameAs": [
+            "https://linkedin.com/in/kapilsaini-dm"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Kapil Saini - SEO Executive Portfolio",
+        "url": "https://kapilsaini.github.io",
+        "description": "Portfolio of Kapil Saini, SEO Executive specializing in technical SEO and growth strategies.",
+        "author": {
+            "@type": "Person",
+            "name": "Kapil Saini"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What SEO results has Kapil Saini achieved?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kapil Saini achieved 3× impression growth and 100%+ daily clicks increase for DubaiVisitVisa, plus 10+ pages ranked in Google Top 10 for UAEVisaOnline through on-page optimization, schema markup, and strategic link building."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What SEO tools does Kapil Saini use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kapil Saini is proficient in Ahrefs, SEMrush, Screaming Frog, Google Search Console, GA4, Rank Math, and WordPress for comprehensive SEO management and analytics."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is Kapil Saini's educational background?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Kapil Saini holds an MBA in Marketing/Digital from PSIT College (2025) and a Bachelor's Degree from CSJMU (2023), complemented by Google Analytics and GSC certifications."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Smooth Scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
