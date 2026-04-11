@@ -561,6 +561,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#cases">Case Studies</a></li>
+                <li><a href="#articles">Articles</a></li>
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -596,6 +597,111 @@
                     <a href="#cases" class="btn btn-primary">
                         <i class="fas fa-chart-line"></i> View Case Studies
                     </a>
+                    <!-- ARTICLES SECTION -->
+<section class="articles" id="articles">
+    <div class="section-container">
+        <h2 class="section-title">Latest Articles</h2>
+        
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-header-card">
+                    <i class="fas fa-robot"></i>
+                    <span class="article-tag">AEO Guide</span>
+                </div>
+                <h3>AEO: Answer Engine Optimization Complete Guide</h3>
+                <p>Learn how to optimize your content for AI search, featured snippets, and voice assistants in 2026.</p>
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i> April 2026</span>
+                    <span><i class="far fa-clock"></i> 14 min read</span>
+                </div>
+                <a href="articles/aeo.html" class="read-more">Read Article →</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<style>
+.articles {
+    padding: 5rem 2rem;
+    background: linear-gradient(to bottom, var(--light), white);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.article-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    padding: 2rem;
+}
+
+.article-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.article-header-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-header-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.article-tag {
+    background: #e0f2fe;
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.article-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.article-card p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.article-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.read-more:hover {
+    color: var(--primary-dark);
+}
+</style>
                     <a href="assets/Kapil_Saini_Resume.pdf" class="btn btn-secondary" download>
                         <i class="fas fa-download"></i> Download Resume
                     </a>
