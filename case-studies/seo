@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Generative SEO & AI Search Visibility | Kapil Saini</title>
+    <title>Case Study: Generative SEO & AI Search Visibility | Kapil Saini SEO</title>
     <meta name="description" content="How achieved AI search visibility across Google AI Overviews, Perplexity, DeepSeek, Claude, ChatGPT, and Grok for DubaiVisitsVisa.com and UAEVisaOnline.com">
     <meta name="keywords" content="Generative SEO, AI search visibility, LLM optimization, Dubai visa SEO, UAE visa SEO">
     <link rel="canonical" href="https://digitalkp.github.io/case-studies/seo-generative-visibility.html">
@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
             --accent: #10b981;
             --dark: #0f172a;
             --light: #f8fafc;
@@ -26,7 +26,7 @@
 
         .case-header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 4rem 2rem; border-radius: 16px; margin-bottom: 3rem; text-align: center; }
         .case-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .case-header .subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .case-header .domain { font-size: 1.25rem; opacity: 0.9; }
 
         .results-bar { display: flex; justify-content: center; gap: 4rem; margin-top: 2rem; flex-wrap: wrap; }
         .result-item { text-align: center; }
@@ -36,40 +36,36 @@
         .section h2 { color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
 
         .domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
-        .domain-card { background: var(--light); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary); }
-        .domain-card.uae { border-left-color: var(--accent); }
-        .domain-card h3 { color: var(--primary); margin-bottom: 1rem; }
-        .domain-card.uae h3 { color: var(--accent); }
+        .domain-card { background: var(--light); padding: 2rem; border-radius: 12px; }
+        .domain-card h3 { color: var(--accent); margin-bottom: 1rem; }
 
         .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .platform-card { background: var(--light); padding: 1.5rem; border-radius: 12px; position: relative; }
-        .platform-card h4 { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; color: var(--dark); }
-        .platform-icon { font-size: 1.5rem; }
-        .screenshot-box { background: white; border: 2px dashed #cbd5e1; border-radius: 8px; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1rem; color: var(--gray); font-size: 0.9rem; }
-        .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.1); color: var(--accent); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .status-badge::before { content: '✓'; width: 18px; height: 18px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+        .platform-card { background: linear-gradient(135deg, #eff6ff, #e0f2fe); padding: 1.5rem; border-radius: 8px; text-align: center; }
+        .platform-card i { font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; }
+        .platform-card h4 { margin-bottom: 0.5rem; }
+        .platform-card p { font-size: 0.9rem; color: var(--gray); }
 
         .strategy-list { list-style: none; margin-top: 1rem; }
         .strategy-list li { padding: 1rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 1rem; }
         .strategy-list li:last-child { border-bottom: none; }
-        .strategy-list i { color: var(--primary); margin-top: 0.25rem; }
+        .strategy-list i { color: var(--accent); margin-top: 0.25rem; }
 
         .data-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.9rem; }
         .data-table th { background: var(--primary); color: white; padding: 1rem; text-align: left; font-weight: 600; }
         .data-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
         .data-table tr:hover { background: var(--light); }
         .domain-tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
-        .domain-tag.dubai { background: rgba(99, 102, 241, 0.1); color: var(--primary-dark); }
+        .domain-tag.dubai { background: rgba(99, 102, 241, 0.1); color: #4f46e5; }
         .domain-tag.uae { background: rgba(16, 185, 129, 0.1); color: var(--accent); }
         .platform-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-        .platform-tag { background: rgba(99, 102, 241, 0.1); color: var(--primary-dark); padding: 0.2rem 0.5rem; border-radius: 8px; font-size: 0.7rem; }
+        .platform-tag { background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 0.2rem 0.5rem; border-radius: 8px; font-size: 0.7rem; }
 
         .metrics-highlight { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 2rem 0; }
         .metric-highlight-box { text-align: center; padding: 1.5rem; background: var(--light); border-radius: 12px; }
-        .metric-highlight-box i { font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; }
+        .metric-highlight-box i { font-size: 2rem; color: var(--accent); margin-bottom: 0.75rem; }
 
         .cta-section { background: var(--dark); color: white; padding: 3rem; border-radius: 12px; text-align: center; margin-top: 3rem; }
-        .cta-button { display: inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; }
+        .cta-button { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; }
 
         footer { text-align: center; padding: 3rem 2rem; color: var(--gray); }
 
@@ -86,7 +82,7 @@
 
         <header class="case-header">
             <h1>Generative SEO & AI Search Visibility</h1>
-            <div class="subtitle">Achieving citations across Google AI Overviews, Perplexity, DeepSeek, Claude, ChatGPT, and Grok</div>
+            <div class="domain">DubaiVisitsVisa.com & UAEVisaOnline.com</div>
             <div class="results-bar">
                 <div class="result-item">
                     <span class="result-number">2</span>
@@ -117,12 +113,12 @@
                 <div class="domain-card">
                     <h3><i class="fas fa-globe"></i> DubaiVisitsVisa.com</h3>
                     <ul style="list-style: none; margin-top: 1rem;">
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Low AI search visibility</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Missing from LLM citations</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> Weak entity signals</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent); margin-right: 0.5rem;"></i> Low AI search visibility</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent); margin-right: 0.5rem;"></i> Missing from LLM citations</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent); margin-right: 0.5rem;"></i> Weak entity signals</li>
                     </ul>
                 </div>
-                <div class="domain-card uae">
+                <div class="domain-card">
                     <h3><i class="fas fa-globe"></i> UAEVisaOnline.com</h3>
                     <ul style="list-style: none; margin-top: 1rem;">
                         <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--accent); margin-right: 0.5rem;"></i> Traditional SEO only</li>
@@ -176,63 +172,39 @@
 
             <div class="platform-grid">
                 <div class="platform-card">
-                    <h4><span class="platform-icon">🔍</span> Google AI Overviews</h4>
-                    <div class="screenshot-box">
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                        <div>dubai-google-ai-overview.png</div>
-                    </div>
-                    <span class="status-badge">Verified Citation</span>
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.75rem;">Domain: DubaiVisitsVisa.com | Query: "Dubai visit visa requirements"</p>
+                    <i class="fab fa-google"></i>
+                    <h4>Google AI Overviews</h4>
+                    <p>DubaiVisitsVisa.com cited for "Dubai visit visa requirements"</p>
                 </div>
 
                 <div class="platform-card">
-                    <h4><span class="platform-icon">🔎</span> Perplexity AI</h4>
-                    <div class="screenshot-box">
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                        <div>uae-perplexity-citation.png</div>
-                    </div>
-                    <span class="status-badge">Verified Citation</span>
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.75rem;">Domain: UAEVisaOnline.com | Query: "UAE visa application process"</p>
+                    <i class="fas fa-search"></i>
+                    <h4>Perplexity AI</h4>
+                    <p>UAEVisaOnline.com listed for "UAE visa application process"</p>
                 </div>
 
                 <div class="platform-card">
-                    <h4><span class="platform-icon">🧠</span> DeepSeek</h4>
-                    <div class="screenshot-box">
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                        <div>dubai-deepseek-reference.png</div>
-                    </div>
-                    <span class="status-badge">Verified Citation</span>
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.75rem;">Domain: DubaiVisitsVisa.com | Query: "Dubai tourist visa fees"</p>
+                    <i class="fas fa-brain"></i>
+                    <h4>DeepSeek</h4>
+                    <p>DubaiVisitsVisa.com referenced for "Dubai tourist visa fees"</p>
                 </div>
 
                 <div class="platform-card">
-                    <h4><span class="platform-icon">🤖</span> Claude (Anthropic)</h4>
-                    <div class="screenshot-box">
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                        <div>uae-claude-citation.png</div>
-                    </div>
-                    <span class="status-badge">Verified Citation</span>
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.75rem;">Domain: UAEVisaOnline.com | Query: "UAE visa types explained"</p>
+                    <i class="fas fa-robot"></i>
+                    <h4>Claude (Anthropic)</h4>
+                    <p>UAEVisaOnline.com cited for "UAE visa types explained"</p>
                 </div>
 
                 <div class="platform-card">
-                    <h4><span class="platform-icon">💬</span> ChatGPT (Browse)</h4>
-                    <div class="screenshot-box">
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                        <div>dubai-chatgpt-browse.png</div>
-                    </div>
-                    <span class="status-badge">Verified Citation</span>
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.75rem;">Domain: DubaiVisitsVisa.com | Query: "How to extend Dubai visit visa"</p>
+                    <i class="fas fa-comments"></i>
+                    <h4>ChatGPT (Browse)</h4>
+                    <p>DubaiVisitsVisa.com referenced for "How to extend Dubai visit visa"</p>
                 </div>
 
                 <div class="platform-card">
-                    <h4><span class="platform-icon">⚡</span> Grok (X AI)</h4>
-                    <div class="screenshot-box">
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
-                        <div>uae-grok-citation.png</div>
-                    </div>
-                    <span class="status-badge">Verified Citation</span>
-                    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 0.75rem;">Domain: UAEVisaOnline.com | Query: "UAE visa processing time 2026"</p>
+                    <i class="fas fa-bolt"></i>
+                    <h4>Grok (X AI)</h4>
+                    <p>UAEVisaOnline.com listed for "UAE visa processing time 2026"</p>
                 </div>
             </div>
         </div>
@@ -349,22 +321,22 @@
             <div class="metrics-highlight">
                 <div class="metric-highlight-box">
                     <i class="fas fa-globe"></i>
-                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">2</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">2</div>
                     <div style="color: var(--gray);">Domains Optimized</div>
                 </div>
                 <div class="metric-highlight-box">
                     <i class="fas fa-robot"></i>
-                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">6+</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">6+</div>
                     <div style="color: var(--gray);">AI Platforms</div>
                 </div>
                 <div class="metric-highlight-box">
                     <i class="fas fa-file-alt"></i>
-                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">6-7</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">6-7</div>
                     <div style="color: var(--gray);">Pages Visible</div>
                 </div>
                 <div class="metric-highlight-box">
                     <i class="fas fa-check-circle"></i>
-                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">100%</div>
+                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">100%</div>
                     <div style="color: var(--gray);">Citation Rate</div>
                 </div>
             </div>
