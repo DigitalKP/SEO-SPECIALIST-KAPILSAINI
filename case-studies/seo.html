@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study: Generative SEO & AI Search Visibility | Kapil Saini SEO</title>
-    <meta name="description" content="How achieved AI search visibility across Google AI Overviews, Perplexity, DeepSeek, Claude, ChatGPT, and Grok for DubaiVisitsVisa.com and UAEVisaOnline.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <meta name="description" content="How I achieved AI search visibility across Google AI Overviews, Perplexity, DeepSeek, Claude, ChatGPT, Gemini, and other answer engines for DubaiVisitsVisa.com and UAEVisaOnline.com.">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,61 +16,464 @@
             --light: #f8fafc;
             --gray: #64748b;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
-        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); text-decoration: none; margin-bottom: 2rem; font-weight: 500; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
 
-        .case-header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 4rem 2rem; border-radius: 16px; margin-bottom: 3rem; text-align: center; }
-        .case-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .case-header .domain { font-size: 1.25rem; opacity: 0.9; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
-        .results-bar { display: flex; justify-content: center; gap: 4rem; margin-top: 2rem; flex-wrap: wrap; }
-        .result-item { text-align: center; }
-        .result-number { font-size: 3rem; font-weight: 800; display: block; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
 
-        .section { background: white; padding: 3rem; border-radius: 12px; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .section h2 { color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .case-header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
 
-        .domain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
-        .domain-card { background: var(--light); padding: 2rem; border-radius: 12px; }
-        .domain-card h3 { color: var(--accent); margin-bottom: 1rem; }
+        .case-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-        .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        .platform-card { background: linear-gradient(135deg, #eff6ff, #e0f2fe); padding: 1.5rem; border-radius: 8px; text-align: center; }
-        .platform-card i { font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; }
-        .platform-card h4 { margin-bottom: 0.5rem; }
-        .platform-card p { font-size: 0.9rem; color: var(--gray); }
+        .case-header .domain {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
 
-        .strategy-list { list-style: none; margin-top: 1rem; }
-        .strategy-list li { padding: 1rem 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: flex-start; gap: 1rem; }
-        .strategy-list li:last-child { border-bottom: none; }
-        .strategy-list i { color: var(--accent); margin-top: 0.25rem; }
+        .results-bar {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
 
-        .data-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.9rem; }
-        .data-table th { background: var(--primary); color: white; padding: 1rem; text-align: left; font-weight: 600; }
-        .data-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
-        .data-table tr:hover { background: var(--light); }
-        .domain-tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
-        .domain-tag.dubai { background: rgba(99, 102, 241, 0.1); color: #4f46e5; }
-        .domain-tag.uae { background: rgba(16, 185, 129, 0.1); color: var(--accent); }
-        .platform-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-        .platform-tag { background: rgba(37, 99, 235, 0.1); color: var(--primary); padding: 0.2rem 0.5rem; border-radius: 8px; font-size: 0.7rem; }
+        .result-item {
+            text-align: center;
+        }
 
-        .metrics-highlight { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 2rem 0; }
-        .metric-highlight-box { text-align: center; padding: 1.5rem; background: var(--light); border-radius: 12px; }
-        .metric-highlight-box i { font-size: 2rem; color: var(--accent); margin-bottom: 0.75rem; }
+        .result-number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+        }
 
-        .cta-section { background: var(--dark); color: white; padding: 3rem; border-radius: 12px; text-align: center; margin-top: 3rem; }
-        .cta-button { display: inline-block; background: var(--accent); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; }
+        .section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-        footer { text-align: center; padding: 3rem 2rem; color: var(--gray); }
+        .section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .domain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .domain-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .domain-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .platform-card {
+            background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .platform-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .platform-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .strategy-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .strategy-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .strategy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .strategy-list i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .data-table tr:hover {
+            background: var(--light);
+        }
+
+        .domain-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .domain-tag.dubai {
+            background: rgba(99, 102, 241, 0.1);
+            color: #4f46e5;
+        }
+
+        .domain-tag.uae {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+        }
+
+        .platform-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+        }
+
+        .platform-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+        }
+
+        .metrics-highlight {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-highlight-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 12px;
+        }
+
+        .metric-highlight-box i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-proof-section {
+            margin: 0 0 2rem;
+            background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+        }
+
+        .ai-proof-header {
+            margin-bottom: 2rem;
+        }
+
+        .ai-proof-header h2 {
+            color: #2563eb;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .ai-proof-header p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.75;
+            max-width: 820px;
+        }
+
+        .ai-proof-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .ai-proof-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #e0f2fe;
+            color: #1d4ed8;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .ai-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ai-proof-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ai-proof-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        }
+
+        .ai-proof-card-large {
+            grid-column: 1 / -1;
+        }
+
+        .ai-proof-image-wrap {
+            position: relative;
+            cursor: zoom-in;
+            background: #0f172a;
+        }
+
+        .ai-proof-image-wrap::after {
+            content: 'Click to enlarge';
+            position: absolute;
+            right: 14px;
+            bottom: 14px;
+            background: rgba(15, 23, 42, 0.82);
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+            letter-spacing: 0.01em;
+        }
+
+        .ai-proof-image-wrap img {
+            width: 100%;
+            display: block;
+            height: auto;
+            background: #0f172a;
+        }
+
+        .ai-proof-content {
+            padding: 1.25rem 1.25rem 1.5rem;
+        }
+
+        .ai-proof-label {
+            display: inline-block;
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+        }
+
+        .ai-proof-content h3 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-proof-content p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .ai-proof-note {
+            margin-top: 1.75rem;
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            color: #166534;
+            line-height: 1.7;
+        }
+
+        .ai-proof-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.88);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            z-index: 9999;
+            cursor: zoom-out;
+        }
+
+        .ai-proof-modal.active {
+            display: flex;
+        }
+
+        .ai-proof-modal img {
+            max-width: min(1200px, 92vw);
+            max-height: 88vh;
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            background: #111827;
+        }
+
+        .ai-proof-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            color: #ffffff;
+            font-size: 2rem;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .cta-section {
+            background: var(--dark);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--gray);
+        }
 
         @media (max-width: 768px) {
-            .domain-grid { grid-template-columns: 1fr; }
-            .metrics-highlight { grid-template-columns: repeat(2, 1fr); }
-            .results-bar { gap: 2rem; }
+            .domain-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-highlight {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-bar {
+                gap: 2rem;
+            }
+
+            .ai-proof-section {
+                padding: 1.5rem;
+            }
+
+            .ai-proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-proof-card-large {
+                grid-column: auto;
+            }
+
+            .ai-proof-header h2 {
+                font-size: 1.45rem;
+            }
+
+            .ai-proof-modal {
+                padding: 1rem;
+            }
+
+            .ai-proof-image-wrap::after {
+                font-size: 0.7rem;
+                right: 10px;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -95,7 +498,7 @@
                     <span style="opacity: 0.9;">Pages Visible</span>
                 </div>
                 <div class="result-item">
-                    <span class="result-number">100%</span>
+                    <span class="result-number">Verified</span>
                     <span style="opacity: 0.9;">Citation Rate</span>
                 </div>
             </div>
@@ -104,7 +507,8 @@
         <div class="section">
             <h2><i class="fas fa-bullseye"></i> The Challenge</h2>
             <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
-                While traditional SEO rankings were established for DubaiVisitsVisa.com and UAEVisaOnline.com, the content was not being cited by emerging AI search platforms and Large Language Models (LLMs). The goal was to achieve visibility in the new paradigm of AI-powered search.
+               While traditional SEO rankings were already established for DubaiVisitsVisa.com and UAEVisaOnline.com, the content was not being consistently cited by emerging AI search platforms and Large Language Models (LLMs). The challenge was not just to rank pages, but to make them extractable, citable, and trusted across AI-powered search environments.
+
             </p>
 
             <div class="domain-grid">
@@ -129,9 +533,9 @@
 
         <div class="section">
             <h2><i class="fas fa-cogs"></i> Strategy & Execution</h2>
-            
+
             <h3 style="color: var(--primary); margin: 1.5rem 0 1rem;">Four-Pillar Generative SEO Approach</h3>
-            
+
             <ul class="strategy-list">
                 <li>
                     <i class="fas fa-sitemap"></i>
@@ -207,6 +611,100 @@
             </div>
         </div>
 
+        <section class="ai-proof-section">
+            <div class="ai-proof-header">
+                <h2><i class="fas fa-brain"></i> Cloud AI Visibility Proof</h2>
+                <p>
+                    These screenshots show that my content is not only ranking in traditional search, but also getting surfaced inside AI-driven answer systems.
+                    This reflects strong AEO, GEO, and LLM-focused content structuring that improves discoverability, citation visibility, and trust across modern AI search interfaces.
+                </p>
+
+                <div class="ai-proof-badges">
+                    <span class="ai-proof-badge"><i class="fas fa-robot"></i> AI Search Visibility</span>
+                    <span class="ai-proof-badge"><i class="fas fa-link"></i> Source Citations</span>
+                    <span class="ai-proof-badge"><i class="fas fa-search"></i> Query Relevance</span>
+                    <span class="ai-proof-badge"><i class="fas fa-chart-line"></i> AEO / GEO Focus</span>
+                </div>
+            </div>
+
+            <div class="ai-proof-grid">
+                <article class="ai-proof-card">
+                    <div class="ai-proof-image-wrap">
+                        <img src="../assets/cloud-ai-uae-visa-ban-countries.png" alt="Cloud AI citation for UAE visa ban countries content">
+                    </div>
+                    <div class="ai-proof-content">
+                        <span class="ai-proof-label">Platform: Cloud AI</span>
+                        <h3>AI Citation for “UAE Visa Ban Countries”</h3>
+                        <p>Cloud AI surfaced my content for <strong>“uae visa ban countries”</strong>, strengthening answer-format visibility and topical authority.</p>
+                    </div>
+                </article>
+
+                <article class="ai-proof-card">
+                    <div class="ai-proof-image-wrap">
+                        <img src="../assets/cloud-ai-remove-immigration-ban.png" alt="Cloud AI citation for remove immigration ban content">
+                    </div>
+                    <div class="ai-proof-content">
+                        <span class="ai-proof-label">Platform: Cloud AI</span>
+                        <h3>Intent Match for Ban Removal Query</h3>
+                        <p>Cloud AI cited my page for <strong>“remove immigration ban”</strong>, proving strong intent targeting and problem-solving content structure.</p>
+                    </div>
+                </article>
+
+                <article class="ai-proof-card">
+                    <div class="ai-proof-image-wrap">
+                        <img src="../assets/gemini-uae-visa-ban-countries.png" alt="Gemini source visibility for UAE visa ban countries">
+                    </div>
+                    <div class="ai-proof-content">
+                        <span class="ai-proof-label">Platform: Gemini</span>
+                        <h3>Gemini Source Visibility</h3>
+                        <p>Gemini included my page as a source for <strong>“uae visa ban countries”</strong>, validating cross-platform AI discoverability.</p>
+                    </div>
+                </article>
+
+                <article class="ai-proof-card">
+                    <div class="ai-proof-image-wrap">
+                        <img src="../assets/gemini-ban-removal-uae.png" alt="Gemini source visibility for ban removal in UAE">
+                    </div>
+                    <div class="ai-proof-content">
+                        <span class="ai-proof-label">Platform: Gemini</span>
+                        <h3>Broader AI Query Reach</h3>
+                        <p>Gemini surfaced my content for <strong>“ban removal in uae”</strong>, extending visibility into action-driven search intent.</p>
+                    </div>
+                </article>
+
+                <article class="ai-proof-card">
+                    <div class="ai-proof-image-wrap">
+                        <img src="../assets/cloud-ai-immigration-ban-uae.png" alt="Cloud AI source mention for immigration ban in UAE content">
+                    </div>
+                    <div class="ai-proof-content">
+                        <span class="ai-proof-label">Platform: Cloud AI</span>
+                        <h3>Source-Level AI Reference</h3>
+                        <p>My content appeared directly inside the AI response flow, showing stronger citation value and trust-based retrieval signals.</p>
+                    </div>
+                </article>
+
+                <article class="ai-proof-card">
+                    <div class="ai-proof-image-wrap">
+                        <img src="../assets/cloud-ai-visa-amnesty-uae.png" alt="Cloud AI source mention for UAE visa amnesty content">
+                    </div>
+                    <div class="ai-proof-content">
+                        <span class="ai-proof-label">Platform: Cloud AI</span>
+                        <h3>Coverage for Amnesty-Based Queries</h3>
+                        <p>Cloud AI used my page for <strong>“visa amnesty uae”</strong>, showing wider AI visibility across compliance and recovery-focused topics.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="ai-proof-note">
+                <strong>My SOP focuses on</strong> building SEO content that is structured for ranking, citation, and AI-source visibility. This includes intent-first formatting, entity-rich topical depth, answer-focused page structure, and frameworks that improve performance across Cloud AI, Gemini, and other LLM-driven discovery systems.
+            </div>
+
+            <div class="ai-proof-modal" id="aiProofModal">
+                <span class="ai-proof-modal-close">&times;</span>
+                <img src="" alt="Expanded AI proof screenshot" id="aiProofModalImage">
+            </div>
+        </section>
+
         <div class="section">
             <h2><i class="fas fa-table"></i> Pages with AI Visibility</h2>
             <table class="data-table">
@@ -271,7 +769,7 @@
                     </tr>
                     <tr>
                         <td><code>/Remove-Uae-Immigration-Ban</code></td>
-                        <td><span class="domain-tag dubai">UAEVisaOnline</span></td>
+                        <td><span class="domain-tag uae">UAEVisaOnline</span></td>
                         <td>Comparison guide</td>
                         <td>
                             <div class="platform-tags">
@@ -296,7 +794,7 @@
                     </tr>
                     <tr>
                         <td><code>/Hatta-border-crossing</code></td>
-                        <td><span class="domain-tag dubai">UAEVisaOnline</span></td>
+                        <td><span class="domain-tag uae">UAEVisaOnline</span></td>
                         <td>Visa extension procedures</td>
                         <td>
                             <div class="platform-tags">
@@ -336,13 +834,14 @@
                 <div class="metric-highlight-box">
                     <i class="fas fa-file-alt"></i>
                     <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">6-7</div>
-                    <div style="color: var(--gray);">Pages Visible</div>
+                    <div style="color: var(--gray);">Verified Pages</div>
                 </div>
                 <div class="metric-highlight-box">
-                    <i class="fas fa-check-circle"></i>
-                    <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">100%</div>
-                    <div style="color: var(--gray);">Citation Rate</div>
-                </div>
+    <i class="fas fa-check-circle"></i>
+    <div style="font-size: 1.75rem; font-weight: 800; color: var(--accent);">Verified</div>
+    <div style="color: var(--gray);">AI Source Visibility</div>
+</div>
+
             </div>
         </div>
 
@@ -356,6 +855,28 @@
             <p>&copy; 2026 Kapil Saini | <a href="../index.html" style="color: var(--primary);">Back to Portfolio</a></p>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            const modal = document.getElementById('aiProofModal');
+            const modalImage = document.getElementById('aiProofModalImage');
+            const wrappers = document.querySelectorAll('.ai-proof-image-wrap');
+
+            wrappers.forEach((wrapper) => {
+                wrapper.addEventListener('click', function () {
+                    const img = this.querySelector('img');
+                    modalImage.src = img.src;
+                    modalImage.alt = img.alt;
+                    modal.classList.add('active');
+                });
+            });
+
+            modal.addEventListener('click', function () {
+                modal.classList.remove('active');
+                modalImage.src = '';
+            });
+        })();
+    </script>
 
     <script type="application/ld+json">
     {
