@@ -421,6 +421,152 @@
             gap: 0.5rem;
         }
 
+        /* Articles Section */
+        .articles {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, var(--light), white);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            padding: 2rem;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .article-header-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .article-tag {
+            background: #e0f2fe;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .article-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .article-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== NEW: My Writing Section CSS ===== */
+        .writing {
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, white, var(--light));
+        }
+
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .writing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .writing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .writing-icon-wrap {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .writing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .writing-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .writing-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .writing-tag {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .writing-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== END: My Writing Section CSS ===== */
+
         /* Tools Section */
         .tools {
             padding: 5rem 2rem;
@@ -569,6 +715,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#cases">Case Studies</a></li>
                 <li><a href="#articles">Articles</a></li>
+                <li><a href="#writing">My Writing</a></li>
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -604,111 +751,6 @@
                     <a href="#cases" class="btn btn-primary">
                         <i class="fas fa-chart-line"></i> View Case Studies
                     </a>
-                    <!-- ARTICLES SECTION -->
-<section class="articles" id="articles">
-    <div class="section-container">
-        <h2 class="section-title">Latest Articles</h2>
-
-        <div class="articles-grid">
-            <!-- Article 1 -->
-            <article class="article-card">
-                <div class="article-header-card">
-                    <i class="fas fa-robot"></i>
-                    <span class="article-tag">AEO Guide</span>
-                </div>
-                <h3>AEO: Answer Engine Optimization Complete Guide</h3>
-                <p>Learn how to optimize your content for AI search, featured snippets, and voice assistants in 2026.</p>
-                <div class="article-meta">
-                    <span><i class="far fa-calendar"></i> April 2026</span>
-                    <span><i class="far fa-clock"></i> 14 min read</span>
-                </div>
-                <a href="articles/aeo.html" class="read-more">Read Article -&gt;</a>
-            </article>
-        </div>
-    </div>
-</section>
-
-<style>
-.articles {
-    padding: 5rem 2rem;
-    background: linear-gradient(to bottom, var(--light), white);
-}
-
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.article-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: all 0.3s;
-    padding: 2rem;
-}
-
-.article-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-.article-header-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.article-header-card i {
-    font-size: 2.5rem;
-    color: var(--primary);
-}
-
-.article-tag {
-    background: #e0f2fe;
-    color: var(--primary);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.article-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark);
-}
-
-.article-card p {
-    color: var(--gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.article-meta {
-    display: flex;
-    gap: 1.5rem;
-    color: var(--gray);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-}
-
-.read-more {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.read-more:hover {
-    color: var(--primary-dark);
-}
-</style>
                     <a href="assets/Kapil_Saini_Resume.pdf" class="btn btn-secondary" download>
                         <i class="fas fa-download"></i> Download Resume
                     </a>
@@ -768,6 +810,7 @@
                       <p>Prompt engineering, AI content generation, SERP intent modeling, and leveraging LLMs like ChatGPT for scalable SEO strategies.</p>
                      </div>
              </div>
+        </div>
     </section>
 
     <!-- Case Studies Section -->
@@ -876,41 +919,101 @@
                     </div>
                 </article>
 
-<!-- Case Study 4 -->
-             <article class="case-card">
-    <div class="case-header">
-        <h3>SEO Growth Engine</h3>
-        <span class="case-domain">seo project</span>
-    </div>
-    <div class="case-body">
-        <div class="case-results">
-            <div class="case-result">
-                <div class="case-result-value">200%+</div>
-                <div class="case-result-label">Traffic Growth</div>
-            </div>
-            <div class="case-result">
-                <div class="case-result-value">Top 5</div>
-                <div class="case-result-label">Keyword Rankings</div>
-            </div>
-        </div>
-        <div class="case-tags">
-            <span class="tag">Technical SEO</span>
-            <span class="tag">AEO Strategy</span>
-            <span class="tag">Content Optimization</span>
-        </div>
-        <p style="color: var(--gray); margin-bottom: 1rem;">
-            Complete SEO implementation including technical fixes, keyword clustering,
-            and AEO-based content strategy to boost organic traffic and rankings.
-        </p>
-        <a href="case-studies/seo.html" class="read-more">
-            Read Full Case Study <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
-</article>
+                <!-- Case Study 4 -->
+                <article class="case-card">
+                    <div class="case-header">
+                        <h3>SEO Growth Engine</h3>
+                        <span class="case-domain">seo project</span>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-results">
+                            <div class="case-result">
+                                <div class="case-result-value">200%+</div>
+                                <div class="case-result-label">Traffic Growth</div>
+                            </div>
+                            <div class="case-result">
+                                <div class="case-result-value">Top 5</div>
+                                <div class="case-result-label">Keyword Rankings</div>
+                            </div>
+                        </div>
+                        <div class="case-tags">
+                            <span class="tag">Technical SEO</span>
+                            <span class="tag">AEO Strategy</span>
+                            <span class="tag">Content Optimization</span>
+                        </div>
+                        <p style="color: var(--gray); margin-bottom: 1rem;">
+                            Complete SEO implementation including technical fixes, keyword clustering,
+                            and AEO-based content strategy to boost organic traffic and rankings.
+                        </p>
+                        <a href="case-studies/seo.html" class="read-more">
+                            Read Full Case Study <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
 
             </div>
         </div>
     </section>
+
+    <!-- ARTICLES SECTION -->
+    <section class="articles" id="articles">
+        <div class="section-container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <div class="article-header-card">
+                        <i class="fas fa-robot"></i>
+                        <span class="article-tag">AEO Guide</span>
+                    </div>
+                    <h3>AEO: Answer Engine Optimization Complete Guide</h3>
+                    <p>Learn how to optimize your content for AI search, featured snippets, and voice assistants in 2026.</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> April 2026</span>
+                        <span><i class="far fa-clock"></i> 14 min read</span>
+                    </div>
+                    <a href="articles/aeo.html" class="read-more">Read Article -&gt;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NEW: My Writing Section ===== -->
+    <section class="writing" id="writing">
+        <div class="section-container">
+            <h2 class="section-title">My Writing</h2>
+            <p style="text-align: center; color: var(--gray); max-width: 600px; margin: 0 auto 2rem;">
+                Beyond SEO — content writing samples that showcase my research skills,
+                engaging writing style, and ability to write across different niches.
+            </p>
+
+            <div class="writing-grid">
+
+                <!-- Writing Sample 1 -->
+                <article class="writing-card">
+                    <div class="writing-icon-wrap">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Off Campus Series</h3>
+                    <p>A comprehensive guide covering off-campus placement strategies, resume building, interview preparation, and job search tips for college students and freshers.</p>
+                    <div class="writing-tags">
+                        <span class="writing-tag">Career Guide</span>
+                        <span class="writing-tag">Freshers</span>
+                        <span class="writing-tag">Content Writing</span>
+                    </div>
+                    <div class="writing-meta">
+                        <span><i class="far fa-calendar"></i> May 2026</span>
+                        <span><i class="far fa-clock"></i> 10 min read</span>
+                    </div>
+                    <a href="articles/off-campus-series.html" class="read-more">
+                        Read Sample <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <!-- ===== END: My Writing Section ===== -->
 
     <!-- Tools Section -->
     <section class="tools" id="tools">
