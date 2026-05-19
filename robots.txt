@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Sitemap: https://kapilsaini.github.io/sitemap.xml
+
+Sitemap: https://digitalkp.github.io/SEO-SPECIALIST-KAPILSAINI/sitemap.xml
 
 # SEO Portfolio - Kapil Saini
-# Last updated: April 2026
+# Last updated: May 2026
