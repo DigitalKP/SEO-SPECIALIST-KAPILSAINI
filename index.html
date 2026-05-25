@@ -665,35 +665,44 @@
         }
 
         .faq-answer {
-            max-height: 0;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: #f8fafc;
+        }
+
+        .faq-item.active .faq-answer {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-answer-content {
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0 1.5rem;
             color: var(--gray);
             font-size: 0.975rem;
             line-height: 1.7;
-            background-color: #f8fafc;
+            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .faq-answer p {
+        .faq-answer-content p {
             margin-bottom: 0.5rem;
         }
 
-        .faq-answer ul {
+        .faq-answer-content ul {
             margin-left: 1.25rem;
             margin-top: 0.5rem;
             list-style-type: disc;
         }
 
-        .faq-answer li {
+        .faq-answer-content li {
             margin-bottom: 0.5rem;
         }
 
-        .faq-answer li:last-child {
+        .faq-answer-content li:last-child {
             margin-bottom: 0;
         }
 
-        .faq-item.active .faq-answer {
+        .faq-item.active .faq-answer-content {
             padding: 1.5rem;
         }
 
@@ -1190,7 +1199,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>I am an SEO Executive & AEO Specialist holding an MBA in Digital Marketing. My expertise lies in Technical SEO, Answer Engine Optimization (AEO), and search intent alignment, backed by over a year of experience managing high-traffic international domains.</p>
+                        <div class="faq-answer-content">
+                            <p>I am an SEO Executive & AEO Specialist holding an MBA in Digital Marketing. My expertise lies in Technical SEO, Answer Engine Optimization (AEO), and search intent alignment, backed by over a year of experience managing high-traffic international domains.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1201,13 +1212,15 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>The 300% growth in impressions and 100%+ click increase was driven by four key pillars:</p>
-                        <ul>
-                            <li><strong>Content Depth:</strong> Expanded thin pages from 300 to 1,500+ intent-focused words.</li>
-                            <li><strong>Core Web Vitals:</strong> Reduced LCP page load times from 4.2s to 2.1s.</li>
-                            <li><strong>Schema Markup:</strong> Injected structured FAQPage, Article, and BreadcrumbList schemas.</li>
-                            <li><strong>Internal Linking:</strong> Designed semantic topic clusters to maximize link equity distribution.</li>
-                        </ul>
+                        <div class="faq-answer-content">
+                            <p>The 300% growth in impressions and 100%+ click increase was driven by four key pillars:</p>
+                            <ul>
+                                <li><strong>Content Depth:</strong> Expanded thin pages from 300 to 1,500+ intent-focused words.</li>
+                                <li><strong>Core Web Vitals:</strong> Reduced LCP page load times from 4.2s to 2.1s.</li>
+                                <li><strong>Schema Markup:</strong> Injected structured FAQPage, Article, and BreadcrumbList schemas.</li>
+                                <li><strong>Internal Linking:</strong> Designed semantic topic clusters to maximize link equity distribution.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -1218,7 +1231,9 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Answer Engine Optimization (AEO) is the process of structuring website data so conversational AI engines (like Google's new RAG-powered AI Overviews, Perplexity, and ChatGPT) can easily parse and cite it. Following the latest Google I/O 2026 Search Box upgrades, search behavior is shifting rapidly from keyword links to dynamic conversational answers.</p>
+                        <div class="faq-answer-content">
+                            <p>Answer Engine Optimization (AEO) is the process of structuring website data so conversational AI engines (like Google's new RAG-powered AI Overviews, Perplexity, and ChatGPT) can easily parse and cite it. Following the latest Google I/O 2026 Search Box upgrades, search behavior is shifting rapidly from keyword links to dynamic conversational answers.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1229,12 +1244,14 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>I align websites with Google's new "Optimizing for Generative AI Features" guidelines by:</p>
-                        <ul>
-                            <li><strong>E-E-A-T Enrichment:</strong> Creating first-person, experience-driven content to bypass AI "commodity content" filters.</li>
-                            <li><strong>Semantic Structure:</strong> Using clean code, descriptive headings, and structured data so RAG systems can accurately pull site citations.</li>
-                            <li><strong>Indexation Audits:</strong> Resolving crawl blockages to ensure the traditional search index (which powers Google's AI models) has full site access.</li>
-                        </ul>
+                        <div class="faq-answer-content">
+                            <p>I align websites with Google's new "Optimizing for Generative AI Features" guidelines by:</p>
+                            <ul>
+                                <li><strong>E-E-A-T Enrichment:</strong> Creating first-person, experience-driven content to bypass AI "commodity content" filters.</li>
+                                <li><strong>Semantic Structure:</strong> Using clean code, descriptive headings, and structured data so RAG systems can accurately pull site citations.</li>
+                                <li><strong>Indexation Audits:</strong> Resolving crawl blockages to ensure the traditional search index (which powers Google's AI models) has full site access.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -1245,12 +1262,14 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>To optimize crawl budget, indexation, and Core Web Vitals (LCP, INP, CLS), I use a professional SEO stack:</p>
-                        <ul>
-                            <li><strong>Diagnostics:</strong> Google Search Console and Screaming Frog to resolve crawl and indexation errors.</li>
-                            <li><strong>Search Intelligence:</strong> Ahrefs and Semrush for competitor analysis and keyword mapping.</li>
-                            <li><strong>Performance:</strong> Chrome DevTools and PageSpeed Insights for frontend optimization.</li>
-                        </ul>
+                        <div class="faq-answer-content">
+                            <p>To optimize crawl budget, indexation, and Core Web Vitals (LCP, INP, CLS), I use a professional SEO stack:</p>
+                            <ul>
+                                <li><strong>Diagnostics:</strong> Google Search Console and Screaming Frog to resolve crawl and indexation errors.</li>
+                                <li><strong>Search Intelligence:</strong> Ahrefs and Semrush for competitor analysis and keyword mapping.</li>
+                                <li><strong>Performance:</strong> Chrome DevTools and PageSpeed Insights for frontend optimization.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -1261,12 +1280,14 @@
                         <i class="fas fa-chevron-down faq-icon"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>I construct semantic topic clusters that build topical authority:</p>
-                        <ul>
-                            <li><strong>Pillar-Cluster Model:</strong> Grouping highly related subtopics around high-value parent pages.</li>
-                            <li><strong>Contextual Anchors:</strong> Utilizing descriptive anchor text to pass authority (PageRank) to key landing pages.</li>
-                            <li><strong>Crawl Efficiency:</strong> Reducing click depth to ensure search bots index core pages within 3 clicks.</li>
-                        </ul>
+                        <div class="faq-answer-content">
+                            <p>I construct semantic topic clusters that build topical authority:</p>
+                            <ul>
+                                <li><strong>Pillar-Cluster Model:</strong> Grouping highly related subtopics around high-value parent pages.</li>
+                                <li><strong>Contextual Anchors:</strong> Utilizing descriptive anchor text to pass authority (PageRank) to key landing pages.</li>
+                                <li><strong>Crawl Efficiency:</strong> Reducing click depth to ensure search bots index core pages within 3 clicks.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1446,13 +1467,10 @@
                     // Close all items
                     faqItems.forEach(otherItem => {
                         otherItem.classList.remove('active');
-                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
                     });
 
                     if (!isActive) {
                         item.classList.add('active');
-                        const answer = item.querySelector('.faq-answer');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
                     }
                 });
             });
