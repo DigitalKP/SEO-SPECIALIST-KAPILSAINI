@@ -912,6 +912,13 @@
                 different aspects of my SEO methodology.
             </p>
 
+            <!-- Interactive Projects Simulator -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="position: relative; display: inline-block; border-radius: 20px; padding: 3px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(16, 185, 129, 0.3) 100%);">
+                    <canvas id="projectCanvas" style="width: 100%; max-width: 800px; height: 450px; background: radial-gradient(circle at center, #0a1128 0%, #01030a 100%); border-radius: 20px; box-shadow: 0 20px 60px rgba(6, 182, 212, 0.15); display: block;"></canvas>
+                </div>
+            </div>
+
             <div class="cases-grid">
                 <!-- Case Study 1 -->
                 <article class="case-card">
@@ -1888,6 +1895,339 @@
 
             resize();
             initGrid();
+            animate();
+        });
+    </script>
+
+    <!-- Interactive SEO Cases Simulator -->
+    <script>
+        window.addEventListener('load', function() {
+            const canvas = document.getElementById('projectCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            const dpr = window.devicePixelRatio || 1;
+            const width = 800;
+            const height = 450;
+
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+
+            const kapil = {
+                x: 520,
+                y: 340,
+                state: 'IDLE',
+                auraSize: 0,
+                hairColor: '#0f172a'
+            };
+
+            const projects = [
+                { id: 1, text: 'dubaivisitsvisa.com', state: 'GROUND', x: 80, y: 390, ox: 80, oy: 390, targetX: 80, targetY: 390, vx: 0, vy: 0, color: '#3b82f6', requestHelp: false, ranked: false },
+                { id: 2, text: 'uaevisaonline.com', state: 'GROUND', x: 190, y: 390, ox: 190, oy: 390, targetX: 190, targetY: 390, vx: 0, vy: 0, color: '#0ea5e9', requestHelp: false, ranked: false },
+                { id: 3, text: 'emiratesvisa.in', state: 'GROUND', x: 300, y: 390, ox: 300, oy: 390, targetX: 300, targetY: 390, vx: 0, vy: 0, color: '#ef4444', requestHelp: false, ranked: false },
+                { id: 4, text: 'bubblebrotherscarwash.com', state: 'GROUND', x: 130, y: 415, ox: 130, oy: 415, targetX: 130, targetY: 415, vx: 0, vy: 0, color: '#f59e0b', requestHelp: false, ranked: false },
+                { id: 5, text: 'imit.com', state: 'GROUND', x: 240, y: 415, ox: 240, oy: 415, targetX: 240, targetY: 415, vx: 0, vy: 0, color: '#a855f7', requestHelp: false, ranked: false },
+                { id: 6, text: 'herohousingfinance.com', state: 'GROUND', x: 350, y: 415, ox: 350, oy: 415, targetX: 350, targetY: 415, vx: 0, vy: 0, color: '#ec4899', requestHelp: false, ranked: false }
+            ];
+
+            const workers = [
+                { x: 100, y: 390, dir: 1, speed: 1.2 },
+                { x: 220, y: 390, dir: -1, speed: 0.9 },
+                { x: 320, y: 415, dir: 1, speed: 1.5 }
+            ];
+
+            let activeProjectIndex = -1;
+            let globalTimer = 0;
+            let lightningStrikes = [];
+
+            function updatePhysics() {
+                globalTimer++;
+
+                workers.forEach(w => {
+                    w.x += w.dir * w.speed;
+                    if (w.x < 50 || w.x > 380) {
+                        w.dir *= -1;
+                    }
+                });
+
+                if (activeProjectIndex === -1 && globalTimer % 180 === 0) {
+                    const unranked = projects.findIndex(p => p.state === 'GROUND');
+                    if (unranked !== -1) {
+                        activeProjectIndex = unranked;
+                        projects[activeProjectIndex].state = 'ASKING';
+                        projects[activeProjectIndex].targetX = kapil.x - 110;
+                        projects[activeProjectIndex].targetY = kapil.y - 20;
+                        projects[activeProjectIndex].requestHelp = true;
+                    } else {
+                        if (globalTimer % 450 === 0) {
+                            projects.forEach((p, idx) => {
+                                p.state = 'GROUND';
+                                p.ranked = false;
+                                p.requestHelp = false;
+                                p.x = idx < 3 ? 80 + idx * 110 : 130 + (idx - 3) * 110;
+                                p.y = idx < 3 ? 390 : 415;
+                                p.targetX = p.x;
+                                p.targetY = p.y;
+                                p.vx = 0; p.vy = 0;
+                            });
+                            kapil.state = 'IDLE';
+                            kapil.hairColor = '#0f172a';
+                        }
+                    }
+                }
+
+                projects.forEach(p => {
+                    if (p.state === 'GROUND') {
+                        p.x += (p.targetX - p.x) * 0.1;
+                        p.y += (p.targetY - p.y) * 0.1;
+                    } 
+                    else if (p.state === 'ASKING') {
+                        p.vx = (p.targetX - p.x) * 0.05;
+                        p.vy = (p.targetY - p.y) * 0.05;
+                        p.x += p.vx;
+                        p.y += p.vy;
+
+                        const dist = Math.hypot(p.x - p.targetX, p.y - p.targetY);
+                        if (dist < 15) {
+                            p.state = 'CHARGING';
+                            kapil.state = 'POWERING_UP';
+                            kapil.hairColor = '#06b6d4'; 
+                            
+                            lightningStrikes = [];
+                            for(let i=0; i<4; i++) {
+                                lightningStrikes.push({
+                                    startX: kapil.x, startY: kapil.y - 15,
+                                    endX: p.x, endY: p.y,
+                                    life: 15
+                                });
+                            }
+                        }
+                    }
+                    else if (p.state === 'CHARGING') {
+                        p.x = p.targetX + (Math.random() - 0.5) * 4;
+                        p.y = p.targetY + (Math.random() - 0.5) * 4;
+
+                        if (globalTimer % 45 === 0) {
+                            p.state = 'RANKED';
+                            p.ranked = true;
+                            p.requestHelp = false;
+                            
+                            const rankSlot = activeProjectIndex;
+                            p.targetX = 100 + rankSlot * 120;
+                            p.targetY = 70 + (rankSlot % 2) * 50;
+                            
+                            kapil.state = 'IDLE';
+                            kapil.hairColor = '#0f172a'; 
+                            activeProjectIndex = -1;
+                        }
+                    }
+                    else if (p.state === 'RANKED') {
+                        p.vx = (p.targetX - p.x) * 0.08;
+                        p.vy = (p.targetY - p.y) * 0.08;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.y += Math.sin(Date.now() * 0.003 + p.id) * 0.25;
+                    }
+                });
+
+                if (kapil.state === 'POWERING_UP') {
+                    kapil.auraSize = Math.min(65, kapil.auraSize + 6);
+                } else {
+                    kapil.auraSize = Math.max(0, kapil.auraSize - 4);
+                }
+
+                lightningStrikes.forEach((l, idx) => {
+                    l.life--;
+                    if (l.life <= 0) {
+                        lightningStrikes.splice(idx, 1);
+                    }
+                });
+            }
+
+            function drawLightningBolt(l) {
+                ctx.beginPath();
+                ctx.moveTo(l.startX, l.startY);
+                let currX = l.startX;
+                let currY = l.startY;
+                const segments = 5;
+                for (let i = 1; i <= segments; i++) {
+                    const ratio = i / segments;
+                    const tx = l.startX + (l.endX - l.startX) * ratio;
+                    const ty = l.startY + (l.endY - l.startY) * ratio;
+                    currX = tx + (Math.random() - 0.5) * 18;
+                    currY = ty + (Math.random() - 0.5) * 18;
+                    ctx.lineTo(currX, currY);
+                }
+                ctx.strokeStyle = '#06b6d4';
+                ctx.lineWidth = 2;
+                ctx.shadowColor = '#06b6d4';
+                ctx.shadowBlur = 10;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+
+            function drawKapil() {
+                const x = kapil.x;
+                const y = kapil.y;
+
+                ctx.save();
+                ctx.translate(x, y);
+
+                if (kapil.state === 'POWERING_UP') {
+                    const auraR = kapil.auraSize + Math.sin(Date.now() * 0.06) * 5;
+                    const grad = ctx.createRadialGradient(0, -15, 5, 0, -15, auraR);
+                    grad.addColorStop(0, 'rgba(6, 182, 212, 0.9)'); 
+                    grad.addColorStop(0.5, 'rgba(59, 130, 246, 0.4)'); 
+                    grad.addColorStop(1, 'transparent');
+                    ctx.fillStyle = grad;
+                    ctx.beginPath();
+                    ctx.arc(0, -15, auraR, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = '#1e293b'; 
+                ctx.beginPath();
+                ctx.roundRect(-15, -45, 30, 45, 4);
+                ctx.fill();
+
+                ctx.fillStyle = '#0f172a'; 
+                ctx.fillRect(-18, -25, 4, 18);
+                ctx.fillRect(14, -25, 4, 18);
+
+                ctx.fillStyle = '#334155'; 
+                ctx.beginPath();
+                ctx.roundRect(-18, -10, 36, 10, 4);
+                ctx.fill();
+                
+                ctx.fillStyle = '#475569'; 
+                ctx.fillRect(-2, 0, 4, 15);
+                ctx.fillRect(-12, 12, 24, 3);
+
+                ctx.fillStyle = '#fbcfe8'; 
+                ctx.beginPath();
+                ctx.arc(0, -32, 8, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = kapil.hairColor;
+                const hairSpikes = [
+                    [-10, -34], [-7, -42], [-4, -36], [0, -45], 
+                    [5, -36], [7, -42], [10, -34], [0, -34]
+                ];
+                ctx.beginPath();
+                ctx.moveTo(hairSpikes[0][0], hairSpikes[0][1]);
+                for(let i=1; i<hairSpikes.length; i++) {
+                    ctx.lineTo(hairSpikes[i][0], hairSpikes[i][1]);
+                }
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.fillStyle = '#2563eb';
+                ctx.beginPath();
+                ctx.moveTo(-7, -24);
+                ctx.lineTo(-11, -10);
+                ctx.lineTo(11, -10);
+                ctx.lineTo(7, -24);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function drawPill(rx, ry, rw, rh, color, outlineColor, txt, iconText) {
+                ctx.save();
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+                ctx.shadowColor = outlineColor;
+                ctx.shadowBlur = outlineColor !== '#475569' ? 6 : 0;
+                
+                ctx.beginPath();
+                ctx.roundRect(rx, ry, rw, rh, rh / 2);
+                ctx.fill();
+                
+                ctx.strokeStyle = outlineColor;
+                ctx.lineWidth = 1.3;
+                ctx.stroke();
+                ctx.restore();
+
+                ctx.font = 'bold 9px system-ui, sans-serif';
+                ctx.fillStyle = outlineColor !== '#475569' ? '#f8fafc' : '#64748b';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(`${iconText} ${txt}`, rx + rw/2, ry + rh/2 + 0.5);
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+
+                ctx.strokeStyle = '#1e293b';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(30, 420);
+                ctx.lineTo(770, 420);
+                ctx.stroke();
+
+                lightningStrikes.forEach(drawLightningBolt);
+                drawKapil();
+
+                workers.forEach(w => {
+                    ctx.fillStyle = 'rgba(16, 185, 129, 0.4)';
+                    ctx.beginPath();
+                    ctx.arc(w.x, w.y, 4, 0, Math.PI*2);
+                    ctx.fill();
+
+                    ctx.strokeStyle = '#10b981';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(w.x, w.y);
+                    ctx.lineTo(w.x + (Math.random()-0.5)*12, w.y - 12);
+                    ctx.stroke();
+                });
+
+                projects.forEach(p => {
+                    let outlineColor = '#475569';
+                    let icon = '❌';
+                    let pillW = 120;
+                    
+                    if (p.ranked) {
+                        outlineColor = '#10b981'; 
+                        icon = '▲ SERP #1';
+                        pillW = 150;
+                    } else if (p.state === 'ASKING' || p.state === 'CHARGING') {
+                        outlineColor = '#06b6d4'; 
+                        icon = '❓ Help!';
+                        pillW = 140;
+                    } else {
+                        icon = '💤 Ground';
+                    }
+
+                    drawPill(p.x - pillW/2, p.y - 12, pillW, 24, p.color, outlineColor, p.text, icon);
+                });
+
+                ctx.save();
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.7)';
+                ctx.strokeStyle = '#1e293b';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.roundRect(15, 15, 770, 30, 6);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.font = 'bold 10px monospace';
+                ctx.fillStyle = '#64748b';
+                ctx.fillText('ACTIVE_WORKFLOWER // CORE_CASE_STUDIES_OPTIMIZER', 30, 33);
+                
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#06b6d4';
+                ctx.fillText('LEAD ANALYST: KAPIL SAINI (AEO & TECHNICAL SEO)', 750, 33);
+                ctx.restore();
+            }
+
+            function animate() {
+                updatePhysics();
+                draw();
+                requestAnimationFrame(animate);
+            }
+
             animate();
         });
     </script>
