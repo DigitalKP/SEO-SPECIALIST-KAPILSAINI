@@ -249,32 +249,16 @@
             position: relative;
         }
 
-        .hero-image {
+        .hero-image-canvas {
             width: 100%;
             max-width: 500px;
             height: 500px;
-            background: var(--gradient);
+            background: radial-gradient(circle at center, #090e1f 0%, #010207 100%);
             border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 8rem;
-            box-shadow: 0 20px 60px rgba(37,99,235,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
-            background-size: 100px;
-            opacity: 0.5;
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.15);
+            display: block;
+            cursor: pointer;
+            touch-action: none;
         }
 
         /* Skills Section */
@@ -866,9 +850,7 @@
             </div>
 
             <div class="hero-visual fade-in delay-2">
-                <div class="hero-image">
-                    <i class="fas fa-rocket"></i>
-                </div>
+                <canvas id="waterCanvas" class="hero-image-canvas"></canvas>
             </div>
         </div>
     </section>
@@ -1484,6 +1466,429 @@
                     }
                 });
             });
+        });
+    </script>
+
+    <!-- Interactive SEO Liquid Grid and DBZ Power-up -->
+    <script>
+        window.addEventListener('load', function() {
+            const canvas = document.getElementById('waterCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            const dpr = window.devicePixelRatio || 1;
+            let width = 500;
+            let height = 500;
+
+            function resize() {
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                ctx.scale(dpr, dpr);
+            }
+
+            let isSuperSaiyan = false;
+            let serpRank = 100;
+
+            const cols = 24;
+            const rows = 24;
+            let points = [];
+
+            function initGrid() {
+                points = [];
+                const spacingX = width / (cols - 1);
+                const spacingY = height / (rows - 1);
+                
+                for (let y = 0; y < rows; y++) {
+                    points[y] = [];
+                    for (let x = 0; x < cols; x++) {
+                        const px = x * spacingX;
+                        const py = y * spacingY;
+                        points[y][x] = {
+                            x: px, y: py,
+                            ox: px, oy: py, 
+                            vx: 0, vy: 0    
+                        };
+                    }
+                }
+            }
+
+            const seoItems = [
+                { text: 'Keyword Research', icon: '🔍', x: 80, y: 460, ox: 80, oy: 460, vx: 0, vy: 0, color: '#f59e0b', size: 130, active: false },
+                { text: 'Content Writing', icon: '✍️', x: 160, y: 450, ox: 160, oy: 450, vx: 0, vy: 0, color: '#10b981', size: 120, active: false },
+                { text: 'LLM Strategy', icon: '🧠', x: 240, y: 470, ox: 240, oy: 470, vx: 0, vy: 0, color: '#3b82f6', size: 110, active: false },
+                { text: 'NLP Optimization', icon: '💬', x: 320, y: 460, ox: 320, oy: 460, vx: 0, vy: 0, color: '#8b5cf6', size: 130, active: false },
+                { text: 'Keyword Mapping', icon: '🗺️', x: 420, y: 450, ox: 420, oy: 450, vx: 0, vy: 0, color: '#ec4899', size: 130, active: false },
+                { text: 'Backlinks', icon: '🔗', x: 120, y: 440, ox: 120, oy: 440, vx: 0, vy: 0, color: '#ef4444', size: 100, active: false },
+                { text: 'Off-Page SEO', icon: '🌐', x: 220, y: 465, ox: 220, oy: 465, vx: 0, vy: 0, color: '#0ea5e9', size: 110, active: false },
+                { text: 'Guest Posting', icon: '✉️', x: 300, y: 445, ox: 300, oy: 445, vx: 0, vy: 0, color: '#eab308', size: 115, active: false },
+                { text: 'Semantic Content', icon: '📝', x: 390, y: 470, ox: 390, oy: 470, vx: 0, vy: 0, color: '#10b981', size: 135, active: false }
+            ];
+
+            const char = {
+                x: 250, y: 220,
+                targetX: 250, targetY: 220,
+                radius: 20
+            };
+
+            const mouse = {
+                x: 250, y: 220,
+                px: 250, py: 220,
+                vx: 0, vy: 0,
+                down: false,
+                active: false
+            };
+
+            function updateMouse(e) {
+                const rect = canvas.getBoundingClientRect();
+                let clientX, clientY;
+                
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                } else {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                }
+                
+                mouse.x = clientX - rect.left;
+                mouse.y = clientY - rect.top;
+                
+                if (mouse.active) {
+                    mouse.vx = mouse.x - mouse.px;
+                    mouse.vy = mouse.y - mouse.py;
+                } else {
+                    mouse.vx = 0; mouse.vy = 0;
+                    mouse.active = true;
+                }
+                
+                mouse.px = mouse.x;
+                mouse.py = mouse.y;
+                char.targetX = mouse.x;
+                char.targetY = mouse.y;
+            }
+
+            canvas.addEventListener('mousemove', updateMouse);
+            canvas.addEventListener('mousedown', (e) => {
+                mouse.down = true;
+                isSuperSaiyan = true;
+                updateMouse(e);
+            });
+            window.addEventListener('mouseup', () => {
+                mouse.down = false;
+                isSuperSaiyan = false;
+            });
+
+            canvas.addEventListener('touchstart', (e) => {
+                mouse.down = true;
+                isSuperSaiyan = true;
+                mouse.active = false;
+                updateMouse(e);
+            }, { passive: true });
+            canvas.addEventListener('touchmove', updateMouse, { passive: true });
+            canvas.addEventListener('touchend', () => {
+                mouse.down = false;
+                isSuperSaiyan = false;
+            });
+
+            function drawLightning(startX, startY, endX, endY, segments) {
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                let currX = startX;
+                let currY = startY;
+                for (let i = 1; i <= segments; i++) {
+                    const ratio = i / segments;
+                    const targetX = startX + (endX - startX) * ratio;
+                    const targetY = startY + (endY - startY) * ratio;
+                    currX = targetX + (Math.random() - 0.5) * 16;
+                    currY = targetY + (Math.random() - 0.5) * 16;
+                    ctx.lineTo(currX, currY);
+                }
+                ctx.strokeStyle = '#00ffff';
+                ctx.lineWidth = 1.5;
+                ctx.shadowColor = '#00ffff';
+                ctx.shadowBlur = 8;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+
+            function updatePhysics() {
+                const springTension = isSuperSaiyan ? 0.08 : 0.04;
+                const damping = 0.88;
+                const forceRadius = isSuperSaiyan ? 140 : 80;
+                const forceStrength = isSuperSaiyan ? 0.8 : 0.3;
+                
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const p = points[y][x];
+                        p.vx += (p.ox - p.x) * springTension;
+                        p.vy += (p.oy - p.y) * springTension;
+                        
+                        if (mouse.active) {
+                            const dx = p.x - char.x;
+                            const dy = p.y - char.y;
+                            const dist = Math.hypot(dx, dy);
+                            
+                            if (dist < forceRadius) {
+                                const influence = (forceRadius - dist) / forceRadius;
+                                p.vx += mouse.vx * influence * forceStrength;
+                                p.vy += mouse.vy * influence * forceStrength;
+                                if (isSuperSaiyan) {
+                                    p.vx += (Math.random() - 0.5) * 3;
+                                    p.vy += (Math.random() - 0.5) * 3;
+                                }
+                            }
+                        }
+                        p.vx *= damping;
+                        p.vy *= damping;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                    }
+                }
+
+                char.x += (char.targetX - char.x) * 0.12;
+                char.y += (char.targetY - char.y) * 0.12;
+
+                const spacingX = width / (cols - 1);
+                const spacingY = height / (rows - 1);
+
+                seoItems.forEach((item, index) => {
+                    if (isSuperSaiyan) {
+                        item.active = true;
+                        const targetX = 80 + (index % 3) * 160 + Math.sin(Date.now() * 0.001 + index) * 20;
+                        const targetY = 120 + Math.floor(index / 3) * 100 + Math.cos(Date.now() * 0.001 + index) * 20;
+                        item.vx += (targetX - item.x) * 0.02;
+                        item.vy += (targetY - item.y) * 0.02;
+                    } else {
+                        const targetY = 440 + (index % 3) * 15;
+                        item.vy += (targetY - item.y) * 0.03;
+                        item.vx += (item.ox - item.x) * 0.03;
+                        if (item.y > 430) {
+                            item.active = false;
+                        }
+                    }
+
+                    const dx = item.x - char.x;
+                    const dy = item.y - char.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 110) {
+                        const force = (110 - dist) / 110;
+                        const push = isSuperSaiyan ? 2.5 : 0.8;
+                        item.vx += (dx / dist) * force * push;
+                        item.vy += (dy / dist) * force * push;
+                    }
+
+                    const gx = Math.max(0, Math.min(cols - 1, Math.floor(item.x / spacingX)));
+                    const gy = Math.max(0, Math.min(rows - 1, Math.floor(item.y / spacingY)));
+                    const gp = points[gy][gx];
+                    if (gp) {
+                        item.vx += gp.vx * 0.18;
+                        item.vy += gp.vy * 0.18;
+                    }
+
+                    item.vx *= 0.92;
+                    item.vy *= 0.92;
+                    item.x += item.vx;
+                    item.y += item.vy;
+
+                    const pad = 40;
+                    if (item.x < pad) { item.x = pad; item.vx *= -0.5; }
+                    if (item.x > width - pad) { item.x = width - pad; item.vx *= -0.5; }
+                    if (item.y < pad) { item.y = pad; item.vy *= -0.5; }
+                    if (item.y > height - pad) { item.y = height - pad; item.vy *= -0.5; }
+                });
+
+                if (isSuperSaiyan) {
+                    if (serpRank > 1) serpRank -= 3;
+                    if (serpRank < 1) serpRank = 1;
+                } else {
+                    if (serpRank < 100) serpRank += 1;
+                }
+            }
+
+            function drawGoku(x, y) {
+                ctx.save();
+                ctx.translate(x, y);
+
+                if (isSuperSaiyan) {
+                    const auraSize = 35 + Math.sin(Date.now() * 0.05) * 6;
+                    const gradient = ctx.createRadialGradient(0, 0, 5, 0, 0, auraSize);
+                    gradient.addColorStop(0, 'rgba(253, 224, 71, 0.9)'); 
+                    gradient.addColorStop(0.5, 'rgba(245, 158, 11, 0.4)'); 
+                    gradient.addColorStop(1, 'rgba(253, 224, 71, 0)');
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, auraSize, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    const gradient = ctx.createRadialGradient(0, 0, 5, 0, 0, 22);
+                    gradient.addColorStop(0, 'rgba(56, 189, 248, 0.6)');
+                    gradient.addColorStop(1, 'rgba(56, 189, 248, 0)');
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 22, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = '#fbcfe8'; 
+                ctx.beginPath();
+                ctx.arc(0, 0, 9, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = isSuperSaiyan ? '#fde047' : '#0f172a'; 
+                const hairSpikes = [
+                    [-12, -4], [-9, -12], [-5, -6], [0, -16], 
+                    [5, -6], [9, -12], [12, -4], [0, -4]
+                ];
+                ctx.beginPath();
+                ctx.moveTo(hairSpikes[0][0], hairSpikes[0][1]);
+                for (let i = 1; i < hairSpikes.length; i++) {
+                    ctx.lineTo(hairSpikes[i][0], hairSpikes[i][1]);
+                }
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.fillStyle = '#ea580c'; 
+                ctx.beginPath();
+                ctx.moveTo(-7, 7);
+                ctx.lineTo(-12, 18);
+                ctx.lineTo(12, 18);
+                ctx.lineTo(7, 7);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.fillStyle = '#1d4ed8'; 
+                ctx.beginPath();
+                ctx.moveTo(-4, 7);
+                ctx.lineTo(0, 13);
+                ctx.lineTo(4, 7);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            function drawHUD() {
+                ctx.save();
+                ctx.fillStyle = isSuperSaiyan ? 'rgba(251, 191, 36, 0.12)' : 'rgba(30, 41, 59, 0.4)';
+                ctx.strokeStyle = isSuperSaiyan ? '#fbbf24' : '#1e293b';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.roundRect(15, 15, 470, 35, 8);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.font = 'bold 11px "Courier New", monospace';
+                ctx.fillStyle = isSuperSaiyan ? '#fbbf24' : '#64748b';
+                ctx.textAlign = 'left';
+                ctx.fillText(isSuperSaiyan ? '⚡ SYSTEM OVERLOAD // SAINIPOWER ACTIVE' : '⚡ SYSTEM: STANDBY', 30, 36);
+
+                ctx.textAlign = 'right';
+                ctx.fillStyle = isSuperSaiyan ? '#10b981' : '#ef4444';
+                ctx.fillText(isSuperSaiyan ? `SERP RANK: #${serpRank} (DOMINATING)` : `SERP RANK: #${serpRank}`, 450, 36);
+                ctx.restore();
+
+                ctx.save();
+                ctx.font = '900 36px system-ui';
+                ctx.textAlign = 'center';
+                ctx.fillStyle = isSuperSaiyan ? 'rgba(251, 191, 36, 0.08)' : 'rgba(255, 255, 255, 0.015)';
+                ctx.fillText('KAPIL SAINI', 250, 260);
+                ctx.restore();
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const p = points[y][x];
+                        const movement = Math.hypot(p.vx, p.vy);
+                        const intensity = Math.min(Math.floor(movement * 22), 180);
+                        if (isSuperSaiyan) {
+                            ctx.strokeStyle = `rgba(${245 + intensity}, ${158 + intensity * 0.5}, ${11}, ${0.15 + (intensity / 320)})`;
+                        } else {
+                            ctx.strokeStyle = `rgba(${37 + intensity}, ${99 + intensity * 1.2}, ${235 + intensity * 0.5}, ${0.12 + (intensity / 350)})`;
+                        }
+                        ctx.lineWidth = 1 + (intensity / 110);
+                        if (x < cols - 1) {
+                            const nextP = points[y][x + 1];
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(nextP.x, nextP.y);
+                            ctx.stroke();
+                        }
+                        if (y < rows - 1) {
+                            const nextP = points[y + 1][x];
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(nextP.x, nextP.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                if (isSuperSaiyan && Math.random() < 0.6) {
+                    const targetIdx = Math.floor(Math.random() * seoItems.length);
+                    const targetItem = seoItems[targetIdx];
+                    if (targetItem.active) {
+                        drawLightning(char.x, char.y, targetItem.x, targetItem.y, 5);
+                    }
+                }
+
+                drawHUD();
+
+                seoItems.forEach(item => {
+                    const gx = Math.max(0, Math.min(cols - 1, Math.floor(item.x / (width / (cols - 1)))));
+                    const gy = Math.max(0, Math.min(rows - 1, Math.floor(item.y / (height / (rows - 1)))));
+                    if (points[gy]) {
+                        const gp = points[gy][gx];
+                        if (gp) {
+                            const bobOffset = (gp.y - gp.oy) * 0.6;
+                            const drawX = item.x;
+                            const drawY = item.y + bobOffset;
+                            const bubbleColor = item.active ? item.color : '#475569';
+                            const textColor = item.active ? '#f8fafc' : '#94a3b8';
+                            const bgOpacity = item.active ? '0.85' : '0.4';
+                            const pillH = 30;
+                            const pillW = item.size;
+                            const pillX = drawX - pillW / 2;
+                            const pillY = drawY - pillH / 2;
+
+                            ctx.save();
+                            if (item.active) {
+                                ctx.shadowColor = item.color;
+                                ctx.shadowBlur = 6;
+                            }
+                            ctx.fillStyle = `rgba(15, 23, 42, ${bgOpacity})`;
+                            ctx.beginPath();
+                            ctx.roundRect(pillX, pillY, pillW, pillH, 15);
+                            ctx.fill();
+                            ctx.strokeStyle = bubbleColor + '66';
+                            ctx.lineWidth = 1.2;
+                            ctx.stroke();
+                            ctx.restore();
+
+                            ctx.font = 'bold 10px system-ui, -apple-system, sans-serif';
+                            ctx.fillStyle = textColor;
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(`${item.icon}  ${item.text}`, drawX, drawY + 1);
+                        }
+                    }
+                });
+
+                drawGoku(char.x, char.y);
+            }
+
+            function animate() {
+                updatePhysics();
+                draw();
+                mouse.vx *= 0.9;
+                mouse.vy *= 0.9;
+                requestAnimationFrame(animate);
+            }
+
+            resize();
+            initGrid();
+            animate();
         });
     </script>
 </body>
